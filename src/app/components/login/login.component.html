@@ -1,20 +1,20 @@
 <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" (ngSubmit)='onSubmit()' #login='ngForm'>
         <img class="mb-4" width="72" height="72" src="../../../assets/img/login2.png" alt="logo">
         <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
         
         <label for="inputUsername">username</label>
-        <input class="form-control" name="username" class="form-control" type="text" id="inputUsername" placeholder="Enter username" required>
+        <input [(ngModel)]='user.username' class="form-control" name="username" class="form-control" type="text" id="inputUsername" placeholder="Enter username" required>
 
         <label for="inputPassword">Password</label>
-        <input class="form-control" name="password" class="form-control" type="password" id="inputPassword" placeholder="Enter password" required>
+        <input [(ngModel)]='user.password' class="form-control" name="password" class="form-control" type="password" id="inputPassword" placeholder="Enter password" required>
 
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-danger btn-block bg-info" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-danger btn-block bg-info" type="submit" [disabled]='!login.form.valid'>Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; Web Hotel 2021</p>
     </form>
 </body>
