@@ -8,6 +8,8 @@ import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path:'', redirectTo: 'Home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'user', component: UserComponent},
   {path: 'login', component: LoginComponent}
