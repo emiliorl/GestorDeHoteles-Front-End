@@ -41,4 +41,25 @@ export class RestUserService {
     return this.http.post(this.uri+'logIn', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
+
+  //function getUsers
+  getUser(){
+    let user = JSON.parse(localStorage.getItem('user'));
+    if(user != undefined || user != null){
+      this.user = user;
+    }else{
+      this.user = null;
+    }
+    return this.user;
+  }
+
+  getToken(){
+    let token = localStorage.getItem('token');
+    if(token != undefined || token != null){
+      this.token = token;
+    }else{
+      this.token = null;
+    }
+    return this.token;
+  }
 }
