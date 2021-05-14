@@ -14,14 +14,12 @@ export class RestUserService {
       'Content-Type': 'application/json'
     })
   };
-  /*
   public httpOptionAuth = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     })
   };
-  */
   public user;
   public token;
 

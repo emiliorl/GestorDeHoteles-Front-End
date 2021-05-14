@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   user;
   uri;
 
-  constructor(private route:Router, private restUser: RestUserService) { }
+  constructor(private route:Router, private restUser: RestUserService) {}
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
@@ -24,11 +24,6 @@ export class NavbarComponent implements OnInit {
   ngDoCheck(){
     this.token = this.restUser.getToken();
     this.user = this.restUser.getUser();
-  }
-
-  deleteData(){
-    localStorage.removeItem('username');//elimina una key especifica
-    //localStorage.clear();
   }
 
   logOut(){
