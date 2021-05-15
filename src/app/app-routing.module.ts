@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/user/user.component';
 
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'Home', pathMatch:'full'},
   {path: 'home', component: HomeComponent},
   {path: 'navbar', component: NavbarComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'user', component: UserComponent},
   {path: 'login', component: LoginComponent}
 ];

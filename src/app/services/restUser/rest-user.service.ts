@@ -60,4 +60,10 @@ export class RestUserService {
     }
     return this.token;
   }
+
+  saveUser(user){
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri+'signIn', params, this.httpOptions)
+    .pipe(map(this.extractData));
+  }
 }

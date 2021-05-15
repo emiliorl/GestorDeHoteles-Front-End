@@ -14,7 +14,8 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-danger btn-block bg-info" type="submit" [disabled]='!login.form.valid'>Sign in</button>
+        <button class="btn btn-lg btn-danger btn-block bg-success" type="submit" [disabled]='!login.form.valid'>Log In</button>
+        <button class="btn btn-lg btn-danger btn-block bg-warning" type="button" routerLink="/register">Sign In</button>
         <p class="mt-5 mb-3 text-muted">&copy; Web Hotel 2021</p>
     </form>
 </body>
