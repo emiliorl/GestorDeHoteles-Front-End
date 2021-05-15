@@ -7,13 +7,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">      
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link"></a>
         </li>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0" *ngIf="token != null">
+          <li class="nav-item">
+            <a class="nav-link" id="textUser">{{user.username}}</a>
+          </li>
+          <li>
+            <img *ngIf="user.image" id="imgUserNavbar" src="{{uri+'getImage/'+user.image}}" alt="user image">
+          </li>
+        </ul>
         <li class="nav-item">
-            <a class="nav-link" *ngIf='token == null' routerLink="/login">
+            <a class="nav-link" *ngIf='token == null' routerLink="/login" routerLinkActivate="active">
                 <img class="imgnavbar" src="../../../assets/img/user.png" alt="login">
             </a>            
             <!--<a class="nav-link" href="#">Perfil</a>-->            
@@ -30,14 +38,15 @@
             </a>            
             <!--<a class="nav-link" href="#"></a>-->          
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Dropdown
+        <li class="nav-item dropdown" *ngIf="token != null || token != undefined">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            More Options
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="">Perfil</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
+            <li><a class="dropdown-item" routerLink="/perfil">Perfil</a></li>
             <li><a class="dropdown-item" routerLink="">Reservations</a></li>
             <li><a class="dropdown-item" routerLink="">My History</a></li>
+            <li *ngIf="user.rol == 'ADMIN'"><a class="dropdown-item" routerLink="">List Users</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
           </ul>

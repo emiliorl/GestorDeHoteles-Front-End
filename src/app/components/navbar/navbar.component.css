@@ -7,3 +7,24 @@
     width: 40px;
     height: 40px;
 }
+
+#imgUserNavbar{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0.4rem;
+}
+
+#textUser{
+    margin: 0.4rem;    
+    text-decoration: none;
+    color:whitesmoke;
+    outline: none;
+}
+
+#navbarDropdown{
+    margin: 0.3rem;    
+    text-decoration: none;
+    color:whitesmoke;
+    outline: none;    
+}
