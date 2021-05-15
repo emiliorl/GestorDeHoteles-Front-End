@@ -18,6 +18,7 @@
           </li>
           <li>
             <img *ngIf="user.image" id="imgUserNavbar" src="{{uri+'getImage/'+user.image}}" alt="user image">
+            <img *ngIf="user.image == '' || user.image == undefined" id="imgUserNavbar" src="../../../assets/img/userNavbar.png" alt="imagen de una agenda">        
           </li>
         </ul>
         <li class="nav-item">
@@ -47,6 +48,7 @@
             <li><a class="dropdown-item" routerLink="">Reservations</a></li>
             <li><a class="dropdown-item" routerLink="">My History</a></li>
             <li *ngIf="user.rol == 'ADMIN'"><a class="dropdown-item" routerLink="">List Users</a></li>
+            <li *ngIf="user.rol == 'ADMIN'"><a class="dropdown-item" routerLink="">Create Admin/Hotel</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
           </ul>
