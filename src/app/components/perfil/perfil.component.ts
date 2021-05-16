@@ -46,7 +46,17 @@ export class PerfilComponent implements OnInit {
   }
 
   deleteUser(){
-    console.log(this.possiblePass)
+    this.restUser.removeUser(this.user._id, this.possiblePass).subscribe((res:any) => {
+      if(!res.userRemoved){
+        alert(res.message)
+      }else{
+        alert(res.message);
+        localStorage.clear();
+        this.router.navigateByUrl('home');
+      }
+    },
+    (error:any) => alert(error.error.message)
+    )
   }
 
   fileChange(fileInput){
@@ -55,6 +65,15 @@ export class PerfilComponent implements OnInit {
   }
 
   uploadImage(){
-
+    this.restUser.uploadImage(this.user._id, [], this.filesToUpload, this.token, 'image')
+    .then((res:any) => {
+      if(res.user){
+        this.user.image = res.userImage;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      }else{
+        alert(res.message)
+      }
+    })
   }
+
 }
