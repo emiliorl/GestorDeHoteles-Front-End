@@ -111,4 +111,10 @@ export class RestUserService {
     return this.http.put(this.uri+'removeUser/'+userDelete, {password: password}, {headers: headers})
     .pipe(map(this.extractData));
   }
+
+  getUsers(){
+    return this.http.get(this.uri+'/listUsers', this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
 }
