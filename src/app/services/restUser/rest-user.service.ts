@@ -20,6 +20,7 @@ export class RestUserService {
       'Authorization': this.getToken()
     })
   };
+
   public user;
   public token;
 
@@ -66,4 +67,54 @@ export class RestUserService {
     return this.http.post(this.uri+'signUp', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
+
+  updateUser(userToUpdate){
+    let params = JSON.stringify(userToUpdate);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri+'updateUser/'+userToUpdate._id, params, {headers: headers})
+    .pipe(map(this.extractData));
+  }
+
+  uploadImage(idUser:string, params: Array<string>, files: Array<File>, token:string, name:string){
+    return new Promise((resolve, reject) => {
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      let uri = this.uri+idUser+'/uploadImage';
+
+      for(var i=0; i<files.length; i++){
+        formData.append(name, files[i], files[i].name)
+      }
+      xhr.onreadystatechange = () => {
+        if(xhr.readyState == 4){
+          if(xhr.status == 200){
+            resolve(JSON.parse(xhr.response));
+          }else{
+            reject(xhr.response);
+          }
+        }
+      }
+      xhr.open('PUT', uri, true);
+      xhr.setRequestHeader('Authorization', token);
+      xhr.send(formData);
+    });
+  }
+
+  removeUser(userDelete, password){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+
+    return this.http.put(this.uri+'removeUser/'+userDelete, {password: password}, {headers: headers})
+    .pipe(map(this.extractData));
+  }
+
+  getUsers(){
+    return this.http.get(this.uri+'/listUsers', this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
 }
