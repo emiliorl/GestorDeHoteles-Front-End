@@ -37,7 +37,7 @@ export class RestUserService {
   login(user, token){
     user.gettoken = token;
     let params = JSON.stringify(user);
-    return this.http.post(this.uri+'logIn', params, this.httpOptions)
+    return this.http.post(this.uri+'login', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
 
@@ -64,7 +64,7 @@ export class RestUserService {
 
   saveUser(user){
     let params = JSON.stringify(user);
-    return this.http.post(this.uri+'signIn', params, this.httpOptions)
+    return this.http.post(this.uri+'signUp', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
 
