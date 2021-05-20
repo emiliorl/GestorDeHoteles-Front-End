@@ -49,6 +49,7 @@
             <li><a class="dropdown-item" routerLink="">Reservations</a></li>
             <li><a class="dropdown-item" routerLink="">My History</a></li>
             <li><a class="dropdown-item" routerLink="/home">Home</a></li>
+            <li *ngIf="user.rol == 'ADMIN_HOTEL'"><a class="dropdown-item" routerLink="">Services</a></li>
             <li *ngIf="user.rol == 'ADMIN'"><a class="dropdown-item" routerLink="/listUsers">List Users</a></li>
             <li *ngIf="user.rol == 'ADMIN'"><a class="dropdown-item" routerLink="/creatAdmin">Create Admin/Hotel</a></li>
             <li><hr class="dropdown-divider"></li>
