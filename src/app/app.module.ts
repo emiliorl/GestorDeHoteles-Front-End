@@ -24,7 +24,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListUsersComponent
+    ListUsersComponent,
   ],
   imports: [
     BrowserModule,
