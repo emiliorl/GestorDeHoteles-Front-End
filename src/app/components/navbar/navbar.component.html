@@ -17,8 +17,10 @@
             <a class="nav-link" id="textUser">{{user.username}}</a>
           </li>
           <li>
-            <img *ngIf="user.image" id="imgUserNavbar" src="{{uri+'getImage/'+user.image}}" alt="user image">
-            <img *ngIf="user.image == '' || user.image == undefined" id="imgUserNavbar" src="../../../assets/img/userNavbar.png" alt="imagen de una agenda">        
+            <a routerLink="/perfil">
+              <img *ngIf="user.image" id="imgUserNavbar" src="{{uri+'getImage/'+user.image}}" alt="user image">
+            <img *ngIf="user.image == '' || user.image == undefined" id="imgUserNavbar" src="../../../assets/img/userNavbar.png" alt="imagen de una agenda">
+            </a>            
           </li>
         </ul>
         <li class="nav-item">
@@ -43,8 +45,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
             More Options
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-            <li><a class="dropdown-item" routerLink="/perfil">Perfil</a></li>
+          <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
             <li><a class="dropdown-item" routerLink="">Reservations</a></li>
             <li><a class="dropdown-item" routerLink="">My History</a></li>
             <li><a class="dropdown-item" routerLink="/home">Home</a></li>

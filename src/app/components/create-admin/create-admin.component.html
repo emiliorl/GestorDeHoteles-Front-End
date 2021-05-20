@@ -36,9 +36,10 @@
 
         <div class="form-group col-md-6">
             <label for="selectRol">Select Rol:</label>
-            <select [(ngModel)]="user.rol" name="rol" id="selectRol" class="form-control">
+            <select [(ngModel)]="user.rol" #rol="ngModel" name="rol" id="selectRol" class="form-control" required>
                 <option *ngFor="let option of optionsRol" [value]="option">{{option}}</option>
             </select>
+            <span></span>
         </div>
         </div>
 
