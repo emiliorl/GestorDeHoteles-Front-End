@@ -15,6 +15,9 @@ import { RestUserService } from './services/restUser/rest-user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { CreateAdminComponent } from './components/create-admin/create-admin.component';
+import { ServicesComponent } from './components/services/services.component';
+import { RestServiceService } from './services/restService/rest-service.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    CreateAdminComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService],
+  providers: [RestUserService, RestServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

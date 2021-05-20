@@ -102,6 +102,12 @@ export class RestUserService {
     });
   }
 
+  saveUserByAdmin(user, idAdmin){
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri+'createAdminHotel/'+idAdmin, params, this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
   removeUser(userDelete, password){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
