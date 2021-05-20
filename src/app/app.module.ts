@@ -15,6 +15,7 @@ import { RestUserService } from './services/restUser/rest-user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     RegisterComponent,
     PerfilComponent,
     ListUsersComponent,
+    CreateAdminComponent
   ],
   imports: [
     BrowserModule,
