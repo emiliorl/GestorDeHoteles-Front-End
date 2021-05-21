@@ -18,7 +18,11 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RestServiceService } from './services/restService/rest-service.service';
+import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
+import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { HotelComponent } from './components/hotel/hotel.component';
     ListUsersComponent,
     CreateAdminComponent,
     ServicesComponent,
-    HotelComponent
+    CreateHotelComponent,
+    HotelComponent,
+    ProfileHotelComponent
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { HotelComponent } from './components/hotel/hotel.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService],
+  providers: [RestUserService, RestServiceService, RestHotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

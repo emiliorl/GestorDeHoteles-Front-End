@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
+import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
 import { HomeComponent } from './components/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'listUsers', component: ListUsersComponent},
   {path: 'creatAdmin', component: CreateAdminComponent},
   {path: 'services', component: ServicesComponent},
+  {path: 'createHotel', component: CreateHotelComponent},
   {path: 'hotel', component: HotelComponent}
 ];
 
