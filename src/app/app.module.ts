@@ -21,6 +21,7 @@ import { RestServiceService } from './services/restService/rest-service.service'
 import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
 import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HotelComponent } from './components/hotel/hotel.component';
     CreateAdminComponent,
     ServicesComponent,
     CreateHotelComponent,
-    HotelComponent
+    HotelComponent,
+    ProfileHotelComponent
 
   ],
   imports: [
