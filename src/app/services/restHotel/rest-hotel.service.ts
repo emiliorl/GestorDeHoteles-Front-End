@@ -1,37 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CONNECTION } from "../global";
+import { CONNECTION } from '../global';
 import { map } from "rxjs/operators";
+import { RestUserService } from '../restUser/rest-user.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestHotelService {
 
-  public uri:string;
-  public token; 
+  public uri;
+  public user;
+
+  constructor(private http:HttpClient, private restUser:RestUserService) {
+    this.uri = CONNECTION.URI;
+  }  
 
   public httpOptions = {
-    headers: new HttpHeaders({
+    headers:new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-
-  public httpOptionAuth = {
+  
+  public HttpOptionsAuth = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': this.getToken()
+      'Authorization': this.restUser.getToken()
     })
-  };
 
-  getToken(){
-    let token = localStorage.getItem('token');
-    if(token != undefined || token != null){
-      this.token = token;
-    }else{
-      this.token = null;
-    }
-    return this.token;
   }
 
   private extractData(res: Response){
@@ -39,13 +36,16 @@ export class RestHotelService {
     return body || [] || {};
   }
 
-  constructor(private http:HttpClient) { 
-    this.uri = CONNECTION.URI;
-  }
-
   createHotel(hotel, idAdmin){
     let params = JSON.stringify(hotel);
-    return this.http.post(this.uri+'/'+idAdmin+'/createHotel', params, this.httpOptionAuth)
+    return this.http.post(this.uri+'/'+idAdmin+'/createHotel', params, this.HttpOptionsAuth)
     .pipe(map(this.extractData));
   }
+
+  getHotelsAdmin(idUser){
+    return this.http.get(this.uri+'getHotelsAdmin/'+idUser, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+
+
 }

@@ -20,6 +20,8 @@ import { ServicesComponent } from './components/services/services.component';
 import { RestServiceService } from './services/restService/rest-service.service';
 import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
 import { RestHotelService } from './services/restHotel/rest-hotel.service';
+import { HotelComponent } from './components/hotel/hotel.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { RestHotelService } from './services/restHotel/rest-hotel.service';
     ListUsersComponent,
     CreateAdminComponent,
     ServicesComponent,
-    CreateHotelComponent
+    CreateHotelComponent,
+    HotelComponent
+
   ],
   imports: [
     BrowserModule,
