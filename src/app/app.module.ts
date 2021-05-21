@@ -18,6 +18,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RestServiceService } from './services/restService/rest-service.service';
+import { HotelComponent } from './components/hotel/hotel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RestServiceService } from './services/restService/rest-service.service'
     PerfilComponent,
     ListUsersComponent,
     CreateAdminComponent,
-    ServicesComponent
+    ServicesComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule,
