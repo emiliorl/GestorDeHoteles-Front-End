@@ -21,7 +21,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputDate">Date</label>
-                <input [(ngModel)]="event.date"  name="date" #date="ngModel" class="form-control" type="text" id="inputDate" placeholder="Date" required>
+                <input [(ngModel)]="event.date"  name="date" #date="ngModel" class="form-control" type="date" id="inputDate" placeholder="Date" required>
                 <span *ngIf="!date.valid && date.touched">
                     Campo obligatorio
                 </span>
