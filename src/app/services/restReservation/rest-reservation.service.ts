@@ -9,7 +9,6 @@ import { map } from 'rxjs/operators';
 export class RestReservationService {
   public uri;
   public token;
-  public user;
 
   public httpOptionAuth = {
     headers: new HttpHeaders({
@@ -24,7 +23,7 @@ export class RestReservationService {
 
 
 
-  constructor(private http:HttpClient, private restUser:RestReservationService) { 
+  constructor(private http:HttpClient, private restReservation:RestReservationService) { 
       this.uri = CONNECTION.URI;
   }
 
@@ -43,7 +42,7 @@ export class RestReservationService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-    return this.http.get(this.uri+'createReservation', this.httpOptionAuth)
+    return this.http.get(this.uri+'createReservation', {headers: headers})
     .pipe(map(this.extractData))
 
   }

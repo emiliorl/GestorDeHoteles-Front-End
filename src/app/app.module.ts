@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
 //My components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CreateReservationComponent } from './components/create-reservation/create-reservation.component';
 import { LoginComponent } from './components/login/login.component';
+import { RestReservationService } from './services/restReservation/rest-reservation.service';
 import { RestUserService } from './services/restUser/rest-user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
@@ -24,6 +26,7 @@ import { HotelComponent } from './components/hotel/hotel.component';
   declarations: [
     AppComponent,
     NavbarComponent,
+    CreateReservationComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
@@ -39,7 +42,7 @@ import { HotelComponent } from './components/hotel/hotel.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService],
+  providers: [RestUserService, RestServiceService, RestReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
