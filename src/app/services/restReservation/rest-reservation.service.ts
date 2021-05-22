@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RestUserService } from '../restUser/rest-user.service';
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
 
@@ -8,62 +7,84 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class RestReservationService {
-    public uri;
-    public token;
-    public user;
-  
-    private extractData(res:Response){
-      let body = res;
-      return body || [] || {}
+  public uri;
+  public token;
+  public user;
+
+  public httpOptionAuth = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  private extractData(res:Response){
+    let body = res;
+    return body || [] || {}
+  }
+
+
+
+  constructor(private http:HttpClient, private restUser:RestReservationService) { 
+      this.uri = CONNECTION.URI;
+  }
+
+  getToken(){
+    let token = localStorage.getItem('token');
+    if(token != undefined || token != null){
+      this.token = token;
+    }else{
+      this.token = null;
+    }
+    return this.token;
+  }  
+
+  createReservation(){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri+'createReservation', this.httpOptionAuth)
+    .pipe(map(this.extractData))
+
+  }
+
+  updateReservation(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri+idUser+'updateReservation', {headers: headers})
+    .pipe(map(this.extractData))
+    
+  }
+
+  listReservation(){
+      return this.http.get(this.uri+'listReservation', this.httpOptionAuth)
+      .pipe(map(this.extractData))
     }
 
+  listAvailableRooms(){
+    return this.http.get(this.uri+'listAvailableRooms', this.httpOptionAuth)
+    .pipe(map(this.extractData))
+  }
 
-    constructor(private http:HttpClient, private restUser:RestUserService) { 
-        this.uri = CONNECTION.URI;
-    }
+  listNotAvailableRooms(){
+    return this.http.get(this.uri+'listNotAvailableRooms', this.httpOptionAuth)
+    .pipe(map(this.extractData))
+  }
 
-    listReservation(){
-        let headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': this.restUser.getToken()
-        })
-        return this.http.get(this.uri+'getUsers', {headers: headers})
-        .pipe(map(this.extractData))
-      }
+removeReservation(idUser, idReservation){
+  let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': this.getToken()
+  });
+    return this.http.put(this.uri+idUser+'/removeReservation/'+idReservation, null, {headers: headers})
+    .pipe(map(this.extractData))
+  }
 
-      listReservationDisp(){
-        let headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': this.restUser.getToken()
-        })
-        return this.http.get(this.uri+'listReservationDisp', {headers: headers})
-        .pipe(map(this.extractData))
-      }
+  findReservationBynameUser(idUser){
 
-      listReservationNoDisp(){
-        let headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': this.restUser.getToken()
-        })
-        return this.http.get(this.uri+'listReservationNoDisp', {headers: headers})
-        .pipe(map(this.extractData))
-      }
-
-    removeReservation(idUser, idReservation){
-        let headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': this.restUser.getToken()
-        })
-        return this.http.put(this.uri+idUser+'/removeReservation/'+idReservation, null, {headers: headers})
-        .pipe(map(this.extractData))
-      }
-
-      findReservationBynameUser(idUser){
-        let headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': this.restUser.getToken()
-        })
-        return this.http.get(this.uri+idUser+'findReservationBynameUser', {headers: headers})
-        .pipe(map(this.extractData))
-      }
+    return this.http.get(this.uri+idUser+'findReservationBynameUser',this.httpOptionAuth)
+    .pipe(map(this.extractData))
+  }
 }

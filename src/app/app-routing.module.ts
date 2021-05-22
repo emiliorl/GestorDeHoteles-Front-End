@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'perfil', component: PerfilComponent},
   {path: 'listUsers', component: ListUsersComponent},
   {path: 'creatAdmin', component: CreateAdminComponent},
-  {path: 'services', component: ServicesComponent}
+  {path: 'services', component: ServicesComponent},
+  {path: 'listReservation', component: ListReservationComponent}
 ];
 
 @NgModule({
