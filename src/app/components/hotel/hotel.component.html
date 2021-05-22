@@ -1,0 +1,25 @@
+<h1>Admin of Hotels</h1>
+<div>
+    <table class="table">
+        <tr>
+            <th>No.</th>
+            <th>Name Hotel</th>            
+            <th>Country</th>
+            <th>City</th>
+            <th>State</th>            
+            <th>ZipeCode</th>
+            <th>Address</th>
+            <th>PhoneHotel</th>
+        </tr>
+        <tr  *ngFor = "let hotel of hotels let i = index">                
+            <td>{{i+1}}</td>
+            <td>{{hotel.nameHotel}}</td>
+            <td>{{hotel.country}}</td>
+            <td>{{hotel.city}}</td>
+            <td>{{hotel.state}}</td>
+            <td>{{hotel.zipCode}}</td>
+            <td>{{hotel.address}}</td>
+            <td>{{hotel.phoneHotel}}</td>
+        </tr>
+    </table>
+</div>
