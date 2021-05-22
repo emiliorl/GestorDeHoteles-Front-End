@@ -8,6 +8,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ServicesComponent } from './components/services/services.component';
 
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'creatAdmin', component: CreateAdminComponent},
   {path: 'services', component: ServicesComponent},
   {path: 'createHotel', component: CreateHotelComponent},
-  {path: 'hotel', component: HotelComponent}
+  {path: 'hotel', component: HotelComponent},
+  {path: 'profileHotel', component: ProfileHotelComponent}
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ export class RestHotelService {
 
   public uri;
   public user;
+  public hotel;
 
   constructor(private http:HttpClient, private restUser:RestUserService) {
     this.uri = CONNECTION.URI;
@@ -47,5 +48,13 @@ export class RestHotelService {
     .pipe(map(this.extractData));
   }
 
-
+  getHotel(){
+    let hotel = JSON.parse(localStorage.getItem('hotel'));
+    if(hotel != undefined || hotel != null){
+      this.hotel = hotel;
+    }else{
+      this.hotel = null;
+    }
+    return this.hotel;
+  }
 }
