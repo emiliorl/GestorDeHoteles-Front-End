@@ -16,7 +16,7 @@ import { ServicesComponent } from './components/services/services.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  
+  {path: '', redirectTo: 'Home', pathMatch:'full'},
   {path: 'home', component: HomeComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'register', component: RegisterComponent},
@@ -29,7 +29,6 @@ const routes: Routes = [
   {path: 'hotel', component: HotelComponent},
   {path: 'profileHotel', component: ProfileHotelComponent},
   {path: 'createEvent', component: CreateEventComponent},
-  {path: '', redirectTo: 'Home', pathMatch:'full'},
 ];
 
 @NgModule({
