@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
 import { HomeComponent } from './components/home/home.component';
 import { HotelComponent } from './components/hotel/hotel.component';
@@ -15,7 +16,7 @@ import { ServicesComponent } from './components/services/services.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '', redirectTo: 'Home', pathMatch:'full'},
+  
   {path: 'home', component: HomeComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'register', component: RegisterComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'createHotel', component: CreateHotelComponent},
   {path: 'hotel', component: HotelComponent},
-  {path: 'profileHotel', component: ProfileHotelComponent}
+  {path: 'profileHotel', component: ProfileHotelComponent},
+  {path: 'createEvent', component: CreateEventComponent},
+  {path: '', redirectTo: 'Home', pathMatch:'full'},
 ];
 
 @NgModule({
