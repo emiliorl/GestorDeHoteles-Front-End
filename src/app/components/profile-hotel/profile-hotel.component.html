@@ -92,8 +92,11 @@
                     <th></th>
                 </tr>
             </thead>
-            <tr>
-                <td></td>
+            <tr *ngFor = "let service of services let i = index">
+                <td>{{i+1}}</td>
+                <td>{{service.nameService}}</td>
+                <td>{{service.price}}</td>
+                <td><a (click)="obtenerData(service)">More_Options</a></td>
             </tr>
         </table>
     </div>
