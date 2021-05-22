@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hotel } from '../../models/hotel';
 import { RestHotelService } from '../../services/restHotel/rest-hotel.service';
 import { RestUserService } from '../../services/restUser/rest-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hotel',
@@ -13,7 +14,7 @@ export class HotelComponent implements OnInit {
   user;
   hotelSelect: Hotel;
 
-  constructor(private restUser: RestUserService, private restHotel:RestHotelService) { }
+  constructor(private restUser: RestUserService, private restHotel:RestHotelService, private route:Router) { }
 
   ngOnInit(): void {
     this.hotelSelect = new Hotel('','','','','','','',null,'','',[],[]);
@@ -25,8 +26,7 @@ export class HotelComponent implements OnInit {
     this.restHotel.getHotelsAdmin(this.user._id).subscribe((res:any) => {
       if(res.hotelsFind){
         this.hotels = res.hotelsFind;
-        console.log('Hoteles encontrados');
-        console.log(this.hotels)
+        delete this.hotelSelect.user;
       }else{
         alert(res.message);
       }
@@ -35,4 +35,10 @@ export class HotelComponent implements OnInit {
     )
   }
 
+  obtenerData(hotel){
+    this.hotelSelect = hotel;
+    delete this.hotelSelect.user;
+    localStorage.setItem('hotel', JSON.stringify(this.hotelSelect));
+    this.route.navigateByUrl('profileHotel')
+  }
 }

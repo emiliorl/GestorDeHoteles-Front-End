@@ -1,16 +1,19 @@
 <h1>Admin of Hotels</h1>
 <div>
-    <table class="table">
-        <tr>
-            <th>No.</th>
-            <th>Name Hotel</th>            
-            <th>Country</th>
-            <th>City</th>
-            <th>State</th>            
-            <th>ZipeCode</th>
-            <th>Address</th>
-            <th>PhoneHotel</th>
-        </tr>
+    <table class="table table-sm">
+        <thead class="table-success">            
+            <tr>
+                <th>No.</th>
+                <th>Name Hotel</th>            
+                <th>Country</th>
+                <th>City</th>
+                <th>State</th>            
+                <th>ZipeCode</th>
+                <th>Address</th>
+                <th>PhoneHotel</th>
+                <th></th>
+            </tr>
+        </thead>
         <tr  *ngFor = "let hotel of hotels let i = index">                
             <td>{{i+1}}</td>
             <td>{{hotel.nameHotel}}</td>
@@ -20,6 +23,7 @@
             <td>{{hotel.zipCode}}</td>
             <td>{{hotel.address}}</td>
             <td>{{hotel.phoneHotel}}</td>
+            <td><a (click)="obtenerData(hotel)">More_Options</a></td>
         </tr>
     </table>
 </div>
