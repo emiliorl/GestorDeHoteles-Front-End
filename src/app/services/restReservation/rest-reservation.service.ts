@@ -23,7 +23,7 @@ export class RestReservationService {
 
 
 
-  constructor(private http:HttpClient, private restReservation:RestReservationService) { 
+  constructor(private http:HttpClient) { 
       this.uri = CONNECTION.URI;
   }
 

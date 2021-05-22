@@ -22,13 +22,13 @@
             
             <div class="form-group col-md-6">
                 <label for="inputcheckOut">Check-Out</label>
-                <input [(ngModel)]="reservation.checkOut" #checkOut="ngModel" name="checkOut" class="form-control" type="number" id="inputPhone" placeholder="phone" required>
+                <input [(ngModel)]="reservation.checkOut" #checkOut="ngModel" name="checkOut" class="form-control" type="number" id="inputcheckOut" placeholder="Salida" required>
                 <span *ngIf="!checkOut.valid && checkOut.touched">
                     *Obligatorio
                 </span>
             </div>
         </div>
-        <button type="submit" class="btn btn-success col-lg-3 mx-2" [disabled]="!reservationUpdate.form.valid">Update</button>
+        <button type="submit" class="btn btn-primary col-lg-3 mx-2">Update</button>
         <button type="button" class="btn btn-danger col-lg-3 mx-2" data-toggle="modal" data-target="#exampleModal" >Delete Reservation</button>        
     </form>
 
@@ -53,8 +53,9 @@
             </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='removeReservation()' [disabled]="!reservationRemoved.form.valid">I'm sure</button>
+                <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='removeReservation()'>I'm sure</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            
             </div>
         </div>
         </div>

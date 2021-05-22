@@ -21,6 +21,8 @@ import { CreateAdminComponent } from './components/create-admin/create-admin.com
 import { ServicesComponent } from './components/services/services.component';
 import { RestServiceService } from './services/restService/rest-service.service';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { HotelComponent } from './components/hotel/hotel.component';
     ListUsersComponent,
     CreateAdminComponent,
     ServicesComponent,
-    HotelComponent
+    HotelComponent,
+    ListReservationComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,10 +10,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'Home', pathMatch:'full'},
   {path: 'home', component: HomeComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'register', component: RegisterComponent},
@@ -24,7 +27,8 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'hotel', component: HotelComponent},
   {path: 'createReservation', component: CreateReservationComponent},
-  {path: '', redirectTo: 'Home', pathMatch:'full'},
+  {path: 'listReservation', component: ListReservationComponent},
+  {path: 'reservation', component: ReservationComponent},
 ];
 
 @NgModule({
