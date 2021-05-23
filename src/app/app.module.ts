@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
 //My components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CreateReservationComponent } from './components/create-reservation/create-reservation.component';
 import { LoginComponent } from './components/login/login.component';
+import { RestReservationService } from './services/restReservation/rest-reservation.service';
 import { RestUserService } from './services/restUser/rest-user.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
@@ -27,14 +29,16 @@ import { ProfileServiceComponent } from './components/profile-service/profile-se
 import { RestEventService } from './services/restEvent/rest-event.service';
 import { EventsAdminComponent } from './components/events-admin/events-admin.component';
 import { ProfileEventComponent } from './components/profile-event/profile-event.component';
-
-
+import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    CreateReservationComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
@@ -46,9 +50,13 @@ import { ProfileEventComponent } from './components/profile-event/profile-event.
     HotelComponent,
     ProfileHotelComponent,
     CreateEventComponent,
-    ProfileServiceComponent,
     EventsAdminComponent,
-    ProfileEventComponent
+    ProfileEventComponent,
+    ProfileServiceComponent,
+    ListReservationComponent,
+    ReservationComponent,
+    CreateServiceComponent
+
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,9 @@ import { ProfileEventComponent } from './components/profile-event/profile-event.
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService, RestHotelService, RestEventService],
+
+  providers: [RestUserService, RestServiceService, RestHotelService, RestEventService, RestReservationService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
