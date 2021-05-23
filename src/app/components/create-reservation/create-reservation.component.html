@@ -32,13 +32,13 @@
                 <label for="inputserviceBefore">Servicios</label>
                 <select name='serviceBefore'>
                     <option selected>N/A</option>
-                    <!--<option>{{service.nameService}}</option>-->
+                    <option>{{reservation.serviceBefore}}</option>
                 </select>
             </div>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block bg-primary" type="button">Agregar servicio</button>
         <button class="btn btn-lg btn-success btn-block bg-success" type="submit">Confirmar reservación</button>
-        <button class="btn btn-lg btn-danger btn-block bg-danger" type="button" routerLink="">Cancelar reservación</button>
+        <button class="btn btn-lg btn-danger btn-block bg-danger" type="button" routerLink="/room">Cancelar reservación</button>
     </form>
 </body>

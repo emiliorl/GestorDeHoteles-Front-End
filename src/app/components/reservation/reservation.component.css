@@ -25,6 +25,11 @@ body{
     padding: 15px;
 }
 
+.form-group{
+    width: 30cm;
+    align-items: center;
+}
+
 button{
     border-radius: 10px;
 }
