@@ -4,12 +4,15 @@ import { CONNECTION } from '../global';
 import { map } from "rxjs/operators";
 import { RestUserService } from '../restUser/rest-user.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class RestHotelService {
+
   public uri;
   public user;
+  public hotel;
 
   constructor(private http:HttpClient, private restUser:RestUserService) {
     this.uri = CONNECTION.URI;
@@ -26,6 +29,7 @@ export class RestHotelService {
       'Content-Type': 'application/json',
       'Authorization': this.restUser.getToken()
     })
+
   }
 
   private extractData(res: Response){
@@ -33,9 +37,24 @@ export class RestHotelService {
     return body || [] || {};
   }
 
+  createHotel(hotel, idAdmin){
+    let params = JSON.stringify(hotel);
+    return this.http.post(this.uri+'/'+idAdmin+'/createHotel', params, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+
   getHotelsAdmin(idUser){
     return this.http.get(this.uri+'getHotelsAdmin/'+idUser, this.HttpOptionsAuth)
     .pipe(map(this.extractData));
   }
 
+  getHotel(){
+    let hotel = JSON.parse(localStorage.getItem('hotel'));
+    if(hotel != undefined || hotel != null){
+      this.hotel = hotel;
+    }else{
+      this.hotel = null;
+    }
+    return this.hotel;
+  }
 }

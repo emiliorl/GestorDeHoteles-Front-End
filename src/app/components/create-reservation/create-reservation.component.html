@@ -4,7 +4,7 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputUser">Reservante</label>
+                <b for="inputUser">Reservante</b>
                 <input [(ngModel)]="reservation.user" name='user' #user="ngModel" class="form-control" id="name" type="text" placeholder="Reservante" required>
                 <span *ngIf="!user.valid && user.touched">
                     *Obligatorio
@@ -14,12 +14,14 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputReservante">Estadía</label>
+                <b for="inputReservante">Estadía</b>
+                <br>
+                <label>Check In</label>
                 <input [(ngModel)]="reservation.checkIn" name='checkIn'#checkIn="ngModel" class="form-control" id="checkIn" type="date" placeholder="Entrada" required>
                 <span *ngIf="!checkIn.valid && checkIn.touched">
                     *Obligatorio
                 </span>
-
+                <label>Check Out</label>
                 <input [(ngModel)]="reservation.checkOut" name='checkOut'#checkOut="ngModel" class="form-control" id="checkOut" type="date" placeholder="Salida" required>
                 <span *ngIf="!checkOut.valid && checkOut.touched">
                     *Obligatorio
@@ -29,7 +31,8 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputserviceBefore">Servicios</label>
+                <b for="inputserviceBefore">Servicios</b>
+                <br>
                 <select name='serviceBefore'>
                     <option selected>N/A</option>
                     <option>{{reservation.serviceBefore}}</option>
@@ -38,6 +41,7 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block bg-primary" type="button">Agregar servicio</button>
+        <br>
         <button class="btn btn-lg btn-success btn-block bg-success" type="submit">Confirmar reservación</button>
         <button class="btn btn-lg btn-danger btn-block bg-danger" type="button" routerLink="/room">Cancelar reservación</button>
     </form>

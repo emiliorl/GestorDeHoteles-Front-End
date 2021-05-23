@@ -2,12 +2,14 @@
     border-radius: 10px;
     width:250px;
     height: 75px;
+    margin: auto;
 }
 
 .btn-success{
     border-radius: 10px;
     width:250px;
     height: 75px;
+    margin: auto;
     float: left;
 }
 
@@ -15,6 +17,7 @@
     border-radius: 10px;
     width:250px;
     height: 75px;
+    margin: auto;
     float: right;
 }
 
@@ -32,4 +35,9 @@ button:hover{
 
 select{
     width:100px;
+}
+
+div{
+    align-items: center;
+    justify-content: center;
 }

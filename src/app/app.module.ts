@@ -20,7 +20,11 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 import { ServicesComponent } from './components/services/services.component';
 import { RestServiceService } from './services/restService/rest-service.service';
+import { CreateHotelComponent } from './components/create-hotel/create-hotel.component';
+import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
+import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
 import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 
@@ -36,9 +40,12 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     ListUsersComponent,
     CreateAdminComponent,
     ServicesComponent,
+    CreateHotelComponent,
     HotelComponent,
+    ProfileHotelComponent,
+    ProfileServiceComponent,
     ListReservationComponent,
-    ReservationComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService, RestReservationService],
+  providers: [RestUserService, RestServiceService, RestHotelService,RestReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
