@@ -67,5 +67,20 @@ export class RestEventService {
     }
     return this.event;
   }
+
+  updateEvent(idUser, idHotel, idEvent, params){
+    console.log('Si llega al params'+params);
+    let update = JSON.stringify(params);
+    console.log(update);
+    return this.http.post(this.uri+'/'+idUser+'/updateEvent/'+idHotel+'/'+idEvent, update, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+  
+  deleteEvent(idUser, idHotel, idEvent){
+    return this.http.post(this.uri+'/'+idUser+'/deleteEvent/'+idHotel+'/'+idEvent, {}, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+  
+
 }
 

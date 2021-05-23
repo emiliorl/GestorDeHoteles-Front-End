@@ -40,8 +40,8 @@ export class EventsAdminComponent implements OnInit {
 
   obtenerData(event){
     this.eventSelected = event;
-    delete this.eventSelected.hotel;
     localStorage.setItem('event', JSON.stringify(this.eventSelected));
+    
     this.route.navigateByUrl('profileEvent');
   }
 }
