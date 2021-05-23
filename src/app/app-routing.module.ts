@@ -35,7 +35,8 @@ const routes: Routes = [
   {path: 'listReservation', component: ListReservationComponent},
   {path: 'reservation', component: ReservationComponent},
   {path: 'createReservation', component: CreateReservationComponent},
-  {path: 'createService', component: CreateServiceComponent}
+  {path: 'createService', component: CreateServiceComponent},
+  {path: 'service', component: ServicesComponent}
 ];
 
 @NgModule({
