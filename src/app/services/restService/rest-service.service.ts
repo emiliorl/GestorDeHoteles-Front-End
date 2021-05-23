@@ -52,4 +52,10 @@ export class RestServiceService {
     return this.http.post(this.uri+'/'+idUser+'/deleteService/'+idHotel+'/'+idService, {nameService: service, passwordAdmin: password}, this.HttpOptionsAuth)
     .pipe(map(this.extractData));
   }
+
+  createService(service,idUser,idHotel){
+    let params = JSON.stringify(service);
+    return this.http.post(this.uri+'/'+idUser+'/createService/'+idHotel, params, this.HttpOptionsAuth)
+    .pipe(map(this.extractData))
+  }
 }

@@ -84,6 +84,11 @@
     <h2>Services</h2>
     <div>
         <table class="table table-sm">
+            <caption>
+                <button class="btn btn-lg btn-danger btn-block bg-warning" type="button">
+                    <a class="create_Service" routerLink="/createService">Create Service</a>
+                </button>
+            </caption>
             <thead class="table-success">            
                 <tr>
                     <th>No.</th>
@@ -96,8 +101,8 @@
                 <td>{{i+1}}</td>
                 <td>{{service.nameService}}</td>
                 <td>{{service.price}}</td>
-                <td><a (click)="obtenerData(service)">More_Options</a></td>
-            </tr>
+                <td><a class="moreOptions" (click)="obtenerData(service)">More_Options</a></td>
+            </tr>            
         </table>
     </div>
 </div>
