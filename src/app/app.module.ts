@@ -23,6 +23,7 @@ import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ProfileServiceComponent } from './components/profile-service/profile-se
     CreateHotelComponent,
     HotelComponent,
     ProfileHotelComponent,
-    ProfileServiceComponent
+    ProfileServiceComponent,
+    CreateServiceComponent
 
   ],
   imports: [
