@@ -78,5 +78,26 @@
                 <label class="form-check-label" for="check">I aggree the terms and conditions</label>
             </div>
         </div>        
-    </form>    
+    </form>
 </body>
+<div>        
+    <h2>Services</h2>
+    <div>
+        <table class="table table-sm">
+            <thead class="table-success">            
+                <tr>
+                    <th>No.</th>
+                    <th>Service</th>            
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr *ngFor = "let service of services let i = index">
+                <td>{{i+1}}</td>
+                <td>{{service.nameService}}</td>
+                <td>{{service.price}}</td>
+                <td><a (click)="obtenerData(service)">More_Options</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

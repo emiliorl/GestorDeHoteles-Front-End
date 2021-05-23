@@ -23,6 +23,8 @@ import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
+import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
+
 
 
 @NgModule({
@@ -39,8 +41,8 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     CreateHotelComponent,
     HotelComponent,
     ProfileHotelComponent,
-    CreateEventComponent
-
+    CreateEventComponent,
+    ProfileServiceComponent
   ],
   imports: [
     BrowserModule,
