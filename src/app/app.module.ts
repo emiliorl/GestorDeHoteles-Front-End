@@ -25,6 +25,8 @@ import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
 import { RestEventService } from './services/restEvent/rest-event.service';
+import { EventsAdminComponent } from './components/events-admin/events-admin.component';
+import { ProfileEventComponent } from './components/profile-event/profile-event.component';
 
 
 
@@ -44,7 +46,9 @@ import { RestEventService } from './services/restEvent/rest-event.service';
     HotelComponent,
     ProfileHotelComponent,
     CreateEventComponent,
-    ProfileServiceComponent
+    ProfileServiceComponent,
+    EventsAdminComponent,
+    ProfileEventComponent
   ],
   imports: [
     BrowserModule,

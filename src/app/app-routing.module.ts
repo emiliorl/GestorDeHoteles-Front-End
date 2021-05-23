@@ -9,6 +9,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProfileEventComponent } from './components/profile-event/profile-event.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'profileHotel', component: ProfileHotelComponent},
   {path: 'createEvent', component: CreateEventComponent},
   {path: 'profileService', component: ProfileServiceComponent},
+  {path: 'profileEvent', component: ProfileEventComponent}
 ];
 
 @NgModule({

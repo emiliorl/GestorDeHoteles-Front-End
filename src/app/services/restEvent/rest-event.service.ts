@@ -9,6 +9,7 @@ import { RestUserService } from '../restUser/rest-user.service';
 })
 export class RestEventService {
 
+  public event;
   public uri;
   public user;
   constructor(private http:HttpClient, private restUser:RestUserService){ 
@@ -47,5 +48,24 @@ export class RestEventService {
     .pipe(map(this.extractData));
   }
 
+  listEvent(idHotel){
+    return this.http.get(this.uri+'/'+idHotel+'/listEvent').pipe(map(this.extractData));
+  }
+
+  getEvent(idHotel, event){
+    let params = JSON.stringify(event);
+    return this.http.post(this.uri+'/'+idHotel+'/getEvent', params)
+    .pipe(map(this.extractData));
+  }
+
+  getLocalStorageEvent(){
+    let event = JSON.parse(localStorage.getItem('event'));
+    if(event != undefined || event!= null){
+      this.event = event;
+    }else{
+      this.event == null;
+    }
+    return this.event;
+  }
 }
 

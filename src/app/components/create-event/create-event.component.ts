@@ -30,6 +30,8 @@ export class CreateEventComponent implements OnInit {
   }
 
   onSubmit(createEvent){
+    console.log(this.event);
+    
     this.restEvent.createEvent(this.userLogg._id, this.hotelSelected._id, this.event).subscribe((res: any)=>{
       if(res.saveEvent){
         alert(res.message);          
@@ -37,8 +39,9 @@ export class CreateEventComponent implements OnInit {
       }else{
         alert(res.message);
       }
-    });
-  
+    },
+    error => alert(error.error.message));
+    
   }
 
 }
