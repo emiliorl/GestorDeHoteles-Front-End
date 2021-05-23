@@ -24,6 +24,8 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
+import { RestEventService } from './services/restEvent/rest-event.service';
+
 
 
 
@@ -50,7 +52,7 @@ import { ProfileServiceComponent } from './components/profile-service/profile-se
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService, RestHotelService],
+  providers: [RestUserService, RestServiceService, RestHotelService, RestEventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

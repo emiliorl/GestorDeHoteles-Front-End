@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, JsonpClientBackend } from "@angular/common/http";
 import { CONNECTION } from '../global';
 import { map } from "rxjs/operators";
 import { RestUserService } from '../restUser/rest-user.service';
@@ -41,8 +41,11 @@ export class RestEventService {
   }
   */
 
-
-
+  createEvent(idUser, idHotel, parametro){
+    let params = JSON.stringify(parametro);
+    return this.http.post(this.uri+'/'+idUser+'/createEvent/'+ idHotel, params, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
 
 }
 

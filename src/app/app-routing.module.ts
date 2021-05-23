@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'hotel', component: HotelComponent},
   {path: 'profileHotel', component: ProfileHotelComponent},
   {path: 'createEvent', component: CreateEventComponent},
-  {path: 'profileService', component: ProfileServiceComponent}
+  {path: 'profileService', component: ProfileServiceComponent},
 ];
 
 @NgModule({

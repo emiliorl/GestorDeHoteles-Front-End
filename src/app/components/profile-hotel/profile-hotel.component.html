@@ -1,5 +1,6 @@
 <body class="text-center">
-    <form class="form-signin" #hotelProfile="ngForm" (ngSubmit)="onSubmit()">
+    
+    <form class="form-signin" #hotelProfile="ngForm" (ngSubmit)="onSubmit(hotelProfile)">
         <h1>Hotel: {{hotel.nameHotel}}</h1>
         <br>
         <img data-toggle="modal" *ngIf="hotel.imageHotel" id="imagePerfil" class ="mb-4" width="72" height="72" src="{{uri+'getImage/'+user.image}}" alt="imagen de un hotel">
@@ -77,8 +78,40 @@
                 <input class="form-check-input" type="checkbox" id="check">
                 <label class="form-check-label" for="check">I aggree the terms and conditions</label>
             </div>
-        </div>        
+        </div>       
+        <button type="submit" class="btn btn-warning col-lg-3 mx-2" [disabled]="!hotelProfile.form.valid">Update</button>
+        <button type="button" class="btn btn-danger col-lg-3 mx-2" data-toggle="modal" data-target="#exampleModal" >Delete Hotel</button>      
+        <br>   
+        <br>
+        <button type="button" class="btn btn-success col-lg-3 mx-2" routerLink="/createEvent">Create Event</button>         
     </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <h3>This action is irreversible!</h3>
+            <span>Enter your password to continue</span>
+            <form #hotelRemoved='ngForm'>
+                <label for="passwordRemove"></label>
+                <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteHotel()' [disabled]="!hotelRemoved.form.valid">I'm sure</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
 </body>
 <div>        
     <h2>Services</h2>
@@ -100,4 +133,5 @@
             </tr>
         </table>
     </div>
+    
 </div>

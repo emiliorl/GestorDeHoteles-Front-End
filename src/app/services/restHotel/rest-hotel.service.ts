@@ -57,4 +57,15 @@ export class RestHotelService {
     }
     return this.hotel;
   }
+
+  updateHotel(idUser, hotelToUpdate, idHotel){
+    let params = JSON.stringify(hotelToUpdate);
+    return this.http.put(this.uri+'/'+idUser+'/updateHotel/'+idHotel, params, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+
+  deleteHotel(idUser, idHotel, password ){
+    return this.http.post(this.uri+'/'+idUser+'/deleteHotel/'+idHotel, {passwordAdmin : password}, this.HttpOptionsAuth)
+    .pipe(map(this.extractData));
+  }
 }
