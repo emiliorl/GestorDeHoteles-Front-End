@@ -33,7 +33,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">State</label>
-                <input [(ngModel)]="hotel.state"  name="state" #state="ngModel" class="form-control" type="text" id="inputZip" placeholder="State" required>
+                <input [(ngModel)]="hotel.state"  name="state" #state="ngModel" class="form-control" type="text" id="inputState" placeholder="State" required>
                 <span *ngIf="!state.valid && state.touched">
                     Campo obligatorio
                 </span>
@@ -60,7 +60,7 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="inputZip">ZIP code</label>
-                <input [(ngModel)]="hotel.zipCode"  name="zipCode" #zip="ngModel" class="form-control" type="text" id="inputAddress" placeholder="ZIP code" required>
+                <input [(ngModel)]="hotel.zipCode"  name="zipCode" #zip="ngModel" class="form-control" type="text" id="inputZip" placeholder="ZIP code" required>
                 <span *ngIf="!zip.valid && zip.touched">
                     Campo obligatorio
                 </span>
@@ -69,7 +69,7 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="inputDescription">Description</label>
-                <input [(ngModel)]="hotel.description"  name="description"  class="form-control" type="text" id="inputAddress" placeholder="Description">
+                <input [(ngModel)]="hotel.description"  name="description"  class="form-control" type="text" id="inputDescription" placeholder="Description">
             </div>
         </div>
 
