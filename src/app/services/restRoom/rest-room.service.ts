@@ -31,7 +31,7 @@ import { RestUserService } from '../restUser/rest-user.service';
     
       setRoom(room,idUser,idHotel){
         let params = JSON.stringify(room);
-        return this.http.post(this.uri+'/'+idUser+'/setRoom/'+idHotel, params, this.HttpOptionsAuth)
+        return this.http.post(this.uri+'/'+idUser+'/createRoom/'+idHotel, params, this.HttpOptionsAuth)
         .pipe(map(this.extractData))
       }
 

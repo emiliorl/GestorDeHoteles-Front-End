@@ -25,14 +25,16 @@ export class CreateRoomComponent implements OnInit {
   }
 
   onSubmit(setRoom){
+    
     this.restRoom.setRoom(this.room,this.user._id,this.hotel._id).subscribe((res:any) => {
-      if(res.showRoom){
+      if(res.roomSaved){
         alert(res.message);
+        localStorage.setItem('room', JSON.stringify(this.room));
         setRoom.reset();
         this.route.navigateByUrl('profileHotel')
       }else{
         alert(res.message);
       }
-    },error => console.log(<any>error))
+    },error => console.log(<any>error));
   }
 }
