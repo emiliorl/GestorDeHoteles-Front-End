@@ -29,6 +29,7 @@ export class CreateHotelComponent implements OnInit {
         alert(res.message);
         this.hotel = new Hotel('','','','','','','',null,'','',[],[]);
         statusForm.reset();
+        this.route.navigateByUrl('hotel');
       }else{
         alert(res.message);
       }
