@@ -47,8 +47,9 @@ import { RestUserService } from '../restUser/rest-user.service';
       }
 
       listRoom(idHotel){
-        return this.http.get(this.uri+'/'+idHotel+'/listRoom')
+        return this.http.put(this.uri+'/'+idHotel+'/listRoom', {})
         .pipe(map(this.extractData));
+      
       }
 
       getRoom(){
