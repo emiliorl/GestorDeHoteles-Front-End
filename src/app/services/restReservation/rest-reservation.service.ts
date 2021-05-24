@@ -53,7 +53,7 @@ export class RestReservationService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-    return this.http.get(this.uri+'/'+idReservation+'/'+idReservation+'updateReservation', {headers: headers})
+    return this.http.post(this.uri+'/'+idReservation+'/'+idReservation+'updateReservation', {headers: headers})
     .pipe(map(this.extractData))
     
   }
@@ -68,7 +68,7 @@ export class RestReservationService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-      return this.http.put(this.uri+idReservation+idUser+'/deleteReservation/', null, {headers: headers})
+      return this.http.post(this.uri+idReservation+idUser+'/deleteReservation/', null, {headers: headers})
       .pipe(map(this.extractData))
     }
 
