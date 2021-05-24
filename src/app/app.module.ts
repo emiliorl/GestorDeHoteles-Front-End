@@ -28,6 +28,7 @@ import { ProfileServiceComponent } from './components/profile-service/profile-se
 import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CreateServiceComponent } from './components/create-service/create-service.component';
+import { RoomComponent } from './components/room/room.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CreateServiceComponent } from './components/create-service/create-servi
     ProfileServiceComponent,
     ListReservationComponent,
     ReservationComponent,
-    CreateServiceComponent
+    CreateServiceComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
