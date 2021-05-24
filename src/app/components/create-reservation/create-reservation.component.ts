@@ -21,12 +21,13 @@ export class CreateReservationComponent implements OnInit {
 
   constructor(private restUser:RestUserService, private restHotel:RestHotelService, private restRoom:RestRoomService,private restReservation:RestReservationService, private route:Router) { 
     this.reservation = new Reservation('',this.checkIn,this.checkOut,[],[],[]);
-  }
-
-  ngOnInit(): void {
     this.user = this.restUser.getUser();
     this.hotel = this.restHotel.getHotel();
     this.user = this.restRoom.getRoom();
+  }
+
+  ngOnInit(): void {
+    
   }
 
   onSubmit(createReservation){
