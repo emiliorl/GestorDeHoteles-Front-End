@@ -13,33 +13,36 @@ export class RoomComponent implements OnInit {
   rooms: [];
   hotel;
   roomSelect: Room;
+  room;
 
-  constructor(private restRoom: RestRoomService, private restHotel:RestHotelService, private route:Router) { }
+  constructor(private restRoom: RestRoomService, private restHotel:RestHotelService, private route:Router) {
+    
+   }
 
 
   ngOnInit(): void {
     this.roomSelect = new Room('','',null,'','',[]);
-    this.rooms = this.hotel.rooms;
-    console.log(this.rooms);
+    this.hotel = this.restHotel.getHotel();
+    this.listRooms();
   }
 
   listRooms(){
     this.restHotel.getHotelsAdmin(this.hotel._id).subscribe((res:any) => {
-      if(res.hotelsFind){
-        this.rooms = res.hotelsFind;
+      if(res.roomFind){
+        console.log("List rooms "+ res.roomFind);
+        this.rooms = res.roomFind;
         delete this.roomSelect.hotel;
       }else{
         alert(res.message);
       }
     },
-    error => alert(error.error.message)
-    )
+    error => alert(error.error.message));
   }
 
   obtenerData(room){
     this.roomSelect = room;
     delete this.roomSelect.hotel;
-    localStorage.setItem('hotel', JSON.stringify(this.roomSelect));
+    localStorage.setItem('room', JSON.stringify(this.roomSelect));
     this.route.navigateByUrl('profileHotel')
   }
 }

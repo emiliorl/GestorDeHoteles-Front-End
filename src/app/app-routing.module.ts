@@ -20,6 +20,7 @@ import { CreateReservationComponent } from './components/create-reservation/crea
 import { CreateServiceComponent } from './components/create-service/create-service.component';
 import { CreateRoomComponent } from './components/create-room/create-room.component';
 import { EventsAdminComponent } from './components/events-admin/events-admin.component';
+import { RoomComponent } from './components/room/room.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: 'service', component: ServicesComponent},
   {path: 'createService', component: CreateServiceComponent},
   {path: 'createRoom', component: CreateRoomComponent},
-  {path: 'events-admin', component: EventsAdminComponent}
+  {path: 'events-admin', component: EventsAdminComponent},
+  {path: 'room', component: RoomComponent}
 ];
 
 @NgModule({

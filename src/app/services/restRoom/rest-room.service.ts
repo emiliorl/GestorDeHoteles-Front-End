@@ -42,7 +42,7 @@ import { RestUserService } from '../restUser/rest-user.service';
       }
 
       removeRoom(idUser, idHotel, idRoom, password, room){
-        return this.http.post(this.uri+'/'+idUser+'/deleteService/'+idHotel+'/'+idRoom, {nameService: room, passwordAdmin: password}, this.HttpOptionsAuth)
+        return this.http.post(this.uri+'/'+idUser+'/removeRoom/'+idHotel+'/'+idRoom, {nameService: room, passwordAdmin: password}, this.HttpOptionsAuth)
         .pipe(map(this.extractData));
       }
 
