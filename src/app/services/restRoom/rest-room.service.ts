@@ -10,12 +10,13 @@ import { RestUserService } from '../restUser/rest-user.service';
     providedIn: 'root'
   })
   export class RestRoomService {
-
+    public room;
     public uri;
 
     public HttpOptionsAuth = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
+         headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.restUser.getToken()
         })
       }
     
@@ -40,8 +41,8 @@ import { RestUserService } from '../restUser/rest-user.service';
         .pipe(map(this.extractData));
       }
 
-      removeRoom(idRoom,room){
-        return this.http.post(this.uri+'/'+idRoom+'/removeRoom/', {nameRoom: room}, this.HttpOptionsAuth)
+      removeRoom(idUser, idHotel, idRoom, password, room){
+        return this.http.post(this.uri+'/'+idUser+'/deleteService/'+idHotel+'/'+idRoom, {nameService: room, passwordAdmin: password}, this.HttpOptionsAuth)
         .pipe(map(this.extractData));
       }
 

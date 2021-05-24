@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAdminComponent } from './components/create-admin/create-admin.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
@@ -18,6 +18,7 @@ import { ListReservationComponent } from './components/list-reservation/list-res
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CreateReservationComponent } from './components/create-reservation/create-reservation.component';
 import { CreateServiceComponent } from './components/create-service/create-service.component';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'reservation', component: ReservationComponent},
   {path: 'createReservation', component: CreateReservationComponent},
   {path: 'service', component: ServicesComponent},
-  {path: 'createService', component: CreateServiceComponent}
+  {path: 'createService', component: CreateServiceComponent},
+  {path: 'createRoom', component: CreateRoomComponent}
 ];
 
 @NgModule({
