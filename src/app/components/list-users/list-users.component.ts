@@ -21,7 +21,7 @@ export class ListUsersComponent implements OnInit {
     this.resUser.getUsers().subscribe((res:any) => {
       if(res.users){
         this.users = res.users;
-        console.log('usuarios encontrados');
+        console.log(res.message);
       }else{
         alert(res.message)
       }
