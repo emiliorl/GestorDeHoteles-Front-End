@@ -18,10 +18,10 @@ export class ListReservationComponent implements OnInit {
     }
   
     listReservation(){
-      this.restReservation.listReservation().subscribe((res:any) => {
+      this.restReservation.getReservation().subscribe((res:any) => {
         if(res.reservation){
           this.reservation = res.reservation;
-          console.log('Estas son las reservaciones que se han hecho!');
+          console.log(res.message);
         }else{
           alert(res.message)
         }
@@ -29,28 +29,5 @@ export class ListReservationComponent implements OnInit {
       error => alert(error.error.message));
     }
 
-    listAvailableRooms(){
-        this.restReservation.listAvailableRooms().subscribe((res:any) => {
-          if(res.reservation){
-            this.reservation = res.reservation;
-            console.log('Estas son las habitaciones disponibles');
-          }else{
-            alert(res.message)
-          }
-        },
-        error => alert(error.error.message));
-      }
-
-      listNotAvailableRooms(){
-        this.restReservation.listNotAvailableRooms().subscribe((res:any) => {
-          if(res.reservation){
-            this.reservation = res.reservation;
-            console.log('Estas son las habitaciones que no están disponibles');
-          }else{
-            alert(res.message)
-          }
-        },
-        error => alert(error.error.message));
-      }
     
 }

@@ -20,7 +20,7 @@ export class ReservationComponent implements OnInit {
   constructor(private restReservation: RestReservationService,
     private router: Router) {
     this.pass = '';
-    this.user = this.restReservation.listReservation();
+    this.user = this.restReservation.getReservation();
     this.token = this.restReservation.getToken();
     this.uri = CONNECTION.URI;
   }
@@ -29,12 +29,9 @@ export class ReservationComponent implements OnInit {
   }
 
   onSubmit(){
-    this.restReservation.updateReservation(this.user,this.reservation).subscribe((res:any) => {
-      delete this.reservation.serviceBefore;
-      delete this.reservation.room;
-      if(res.reservationUpdate){
-        delete res.reservationUpdate.user;
-        localStorage.setItem('reservation', JSON.stringify(res.reservationUpdate))
+    this.restReservation.updateReservation(this.user._id,this.reservation._id).subscribe((res:any) => {
+      if(res.updateReservation){
+        localStorage.setItem('reservation', JSON.stringify(res.updateReservation))
         alert(res.message)
       }else{
         alert(res.message);
