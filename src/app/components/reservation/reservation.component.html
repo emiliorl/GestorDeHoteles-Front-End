@@ -1,5 +1,5 @@
 <body class="text-center">
-    <form class="form-signin" #userUpdate="ngForm" (ngSubmit)="onSubmit()">
+    <form class="form-signin" #reservationUpdate="ngForm" (ngSubmit)="onSubmit()">
         <br>      
         <div class="form-group">
             <div class="form-group col-md-6">
@@ -48,8 +48,8 @@
             <h3>This action is irreversible!</h3>
             <span>Put your name if you are sure to remove this reservation</span>
             <form #removeReservation='ngForm'>
-                <label for="deleteReservation"></label>
-                <input [(ngModel)]='pass' type="text" id='deleteReservation' name='pass' required>
+                <label for="removeReservation"></label>
+                <input [(ngModel)]='pass' type="text" id='removeReservation' name='pass' required>
             </form>
             </div>
             <div class="modal-footer">
