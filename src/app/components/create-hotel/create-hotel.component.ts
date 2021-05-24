@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Hotel } from '../../models/hotel';
 import { RestHotelService } from 'src/app/services/restHotel/rest-hotel.service';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class CreateHotelComponent implements OnInit {
   public hotel:Hotel;
   public userLogg;
 
-  constructor(private restHotel : RestHotelService, private restUser:RestUserService) { 
+  constructor(private restHotel : RestHotelService, private restUser:RestUserService, private route : Router) { 
     this.hotel = new Hotel('','','','','','','',null,'','',[],[]);
     this.userLogg = this.restUser.getUser();
   }
@@ -27,11 +29,16 @@ export class CreateHotelComponent implements OnInit {
         alert(res.message);
         this.hotel = new Hotel('','','','','','','',null,'','',[],[]);
         statusForm.reset();
+        this.route.navigateByUrl('hotel');
       }else{
         alert(res.message);
       }
       
     },
     error => alert(error.error.message));
+  }
+
+  volver(){
+    this.route.navigateByUrl('hotel');
   }
 }
