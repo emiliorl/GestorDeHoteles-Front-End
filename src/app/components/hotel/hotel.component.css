@@ -6,6 +6,12 @@
     font-family: Arial;
 }
 
+.table-success{
+    background-color: #1FB4D5;
+    color: white;
+    font-weight: bold;
+}
+
 h1{ 
     margin-top: 25px;
     text-align: left;
