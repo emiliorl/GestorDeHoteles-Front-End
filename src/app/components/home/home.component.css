@@ -57,3 +57,28 @@
     padding: 8px;
     margin: 5px;
 }
+
+@media only screen and (min-width: 500px) and (max-width: 1000px){
+    #slogan{
+        display: flex;
+        width: 100%;
+        font-size: 34px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #slogan{
+        display: flex;
+        margin-top: 4rem;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .card2{
+        display: none;
+    }
+
+    .card1{
+        width: 90%;
+    }
+}
