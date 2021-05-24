@@ -40,3 +40,15 @@ button:hover{
     transition: all 1.8s;
     background-color: #5278bd;
 }
+
+#login{
+    background-color: #1FB4D5;
+    color: white;
+    font-weight: bold;
+}
+
+#signup{
+    background-color: #FF9100;
+    color: white;
+    font-weight: bold;
+}
