@@ -41,4 +41,8 @@ export class HotelComponent implements OnInit {
     localStorage.setItem('hotel', JSON.stringify(this.hotelSelect));
     this.route.navigateByUrl('profileHotel')
   }
+
+  createHotelRef(){
+    this.route.navigateByUrl('createHotel');
+  }
 }
