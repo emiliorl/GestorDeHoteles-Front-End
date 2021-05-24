@@ -41,25 +41,25 @@ export class RestReservationService {
     return this.token;
   }  
 
-  createReservation(reservation,idUser, idHotel,idRoom){
+  createReservation(reservation,idReservation, idHotel,idRoom){
     let params = JSON.stringify(reservation);
-    return this.http.post(this.uri+'/'+idUser+'/createReservation/'+idHotel + idRoom, params, this.httpOptionAuth)
+    return this.http.post(this.uri+'/'+idReservation+'/'+idHotel+'/'+idRoom+'/makeReservation/', params, this.httpOptionAuth)
     .pipe(map(this.extractData))
 
   }
 
-  updateReservation(idUser, idReservation){
+  updateReservation(idReservation, idRoom){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-    return this.http.get(this.uri+idUser+'updateReservation'+ idReservation, {headers: headers})
+    return this.http.get(this.uri+'/'+idReservation+'/'+idReservation+'updateReservation', {headers: headers})
     .pipe(map(this.extractData))
     
   }
 
-  listReservation(idUser){
-      return this.http.get(this.uri+idUser+'listReservation', this.httpOptionAuth)
+  listReservation(idReservation){
+      return this.http.get(this.uri+idReservation+'listReservations', this.httpOptionAuth)
       .pipe(map(this.extractData))
     }
 
@@ -68,7 +68,7 @@ export class RestReservationService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-      return this.http.put(this.uri+idUser+'/removeReservation/'+idReservation, null, {headers: headers})
+      return this.http.put(this.uri+idReservation+idUser+'/deleteReservation/', null, {headers: headers})
       .pipe(map(this.extractData))
     }
 
