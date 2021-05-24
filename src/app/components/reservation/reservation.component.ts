@@ -30,10 +30,7 @@ export class ReservationComponent implements OnInit {
 
   onSubmit(){
     this.restReservation.updateReservation(this.user._id,this.reservation._id).subscribe((res:any) => {
-      delete this.reservation.serviceBefore;
-      delete this.reservation.room;
       if(res.updateReservation){
-        delete res.updateReservation.user;
         localStorage.setItem('reservation', JSON.stringify(res.updateReservation))
         alert(res.message)
       }else{
