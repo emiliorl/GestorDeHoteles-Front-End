@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CONNECTION } from '../global';
 import { map } from 'rxjs/operators';
+/*import { RestRoomService } from '../restRoom/rest-room.service';*/
+import { RestUserService } from '../restUser/rest-user.service';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +14,8 @@ export class RestReservationService {
 
   public httpOptionAuth = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': this.restUser.getToken()
     })
   };
 
@@ -23,7 +26,7 @@ export class RestReservationService {
 
 
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient,private restUser:RestUserService, /*private restRoom:RestRoomService*/) { 
       this.uri = CONNECTION.URI;
   }
 
@@ -37,22 +40,19 @@ export class RestReservationService {
     return this.token;
   }  
 
-  createReservation(){
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': this.getToken()
-    });
-    return this.http.get(this.uri+'createReservation', {headers: headers})
+  createReservation(reservation,idUser/*,idRoom*/){
+    let params = JSON.stringify(reservation);
+    return this.http.post(this.uri+'/'+idUser+'/createReservation/'+/*idRoom*/"", params, this.httpOptionAuth)
     .pipe(map(this.extractData))
 
   }
 
-  updateReservation(idUser){
+  updateReservation(idUser, idReservation){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-    return this.http.get(this.uri+idUser+'updateReservation', {headers: headers})
+    return this.http.get(this.uri+idUser+'updateReservation'+ idReservation, {headers: headers})
     .pipe(map(this.extractData))
     
   }

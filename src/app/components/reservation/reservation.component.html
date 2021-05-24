@@ -4,7 +4,7 @@
         <div class="form-group">
             <div class="form-group col-md-6">
                 <label for="inputName">Reservante</label>
-                <input [(ngModel)]="reservation.user" name='user' #user="ngModel" class="form-control" id="inputName" type="text" placeholder="Reservante" required>
+                <input [(ngModel)]="reservation.user" name='user' #user="ngModel" class="form-control" id="inputUser" type="text" placeholder="Reservante" required>
                 <span *ngIf="!user.valid && user.touched">
                     *Obligatorio
                 </span>
@@ -14,7 +14,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputcheckIn">Check-In</label>
-                <input [(ngModel)]="reservation.checkIn" #checkIn="ngModel" name='checkIn' class="form-control" placeholder="Entrada" type="text" id="inputcheckIn" required>
+                <input [(ngModel)]="reservation.checkIn" #checkIn="ngModel" name='checkIn' class="form-control" placeholder="Entrada" type="date" id="inputcheckIn" required>
                 <span *ngIf="!checkIn.valid && checkIn.touched">
                     *Obligatorio
                 </span>
@@ -22,7 +22,7 @@
             
             <div class="form-group col-md-6">
                 <label for="inputcheckOut">Check-Out</label>
-                <input [(ngModel)]="reservation.checkOut" #checkOut="ngModel" name="checkOut" class="form-control" type="number" id="inputcheckOut" placeholder="Salida" required>
+                <input [(ngModel)]="reservation.checkOut" #checkOut="ngModel" name="checkOut" class="form-control" type="date" id="inputcheckOut" placeholder="Salida" required>
                 <span *ngIf="!checkOut.valid && checkOut.touched">
                     *Obligatorio
                 </span>
