@@ -1,10 +1,11 @@
 export class Event{
 
     constructor(
-        public _id: string,
-        public nameEvent: string,
-        public typeEvent: string,
-        public description: string,
+        public nameEvent: String,
+        public typeEvent: String,
+        public description: String,
         public date: Date,
+        public imageEvent: String,
+        public hotel: []
     ){}
 }

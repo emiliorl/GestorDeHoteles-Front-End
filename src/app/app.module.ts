@@ -24,11 +24,16 @@ import { CreateHotelComponent } from './components/create-hotel/create-hotel.com
 import { RestHotelService } from './services/restHotel/rest-hotel.service';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ProfileServiceComponent } from './components/profile-service/profile-service.component';
+import { RestEventService } from './services/restEvent/rest-event.service';
+import { EventsAdminComponent } from './components/events-admin/events-admin.component';
+import { ProfileEventComponent } from './components/profile-event/profile-event.component';
 import { ListReservationComponent } from './components/list-reservation/list-reservation.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CreateServiceComponent } from './components/create-service/create-service.component';
 import { RoomComponent } from './components/room/room.component';
+
 
 @NgModule({
   declarations: [
@@ -45,11 +50,15 @@ import { RoomComponent } from './components/room/room.component';
     CreateHotelComponent,
     HotelComponent,
     ProfileHotelComponent,
+    CreateEventComponent,
+    EventsAdminComponent,
+    ProfileEventComponent,
     ProfileServiceComponent,
     ListReservationComponent,
     ReservationComponent,
     CreateServiceComponent,
     RoomComponent
+
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,9 @@ import { RoomComponent } from './components/room/room.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestUserService, RestServiceService, RestHotelService,RestReservationService],
+
+  providers: [RestUserService, RestServiceService, RestHotelService, RestEventService, RestReservationService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

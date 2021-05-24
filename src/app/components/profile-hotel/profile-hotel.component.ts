@@ -8,8 +8,9 @@ import { Service } from 'src/app/models/service';
 import { Router } from '@angular/router';
 import { RestServiceService } from 'src/app/services/restService/rest-service.service';
 
+
 @Component({
-  selector: 'app-profile-hotel',
+  selector: 'profile-hotel',
   templateUrl: './profile-hotel.component.html',
   styleUrls: ['./profile-hotel.component.css']
 })
@@ -22,7 +23,7 @@ export class ProfileHotelComponent implements OnInit {
   services: [];
   serviceSelect: Service;
   
-  constructor(private route:Router, private restService:RestServiceService ,private restHotel: RestHotelService, private restUser: RestUserService) {
+  constructor(private route:Router, private restService:RestServiceService ,private restHotel: RestHotelService, private restUser: RestUserService, private router:Router) {
     this.possiblePass = '';
     this.token = this.restUser.getToken();
     this.user = this.restUser.getUser();        
@@ -35,7 +36,28 @@ export class ProfileHotelComponent implements OnInit {
     this.listHotels();
   }
 
-  onSubmit(){
+  onSubmit(statusForm){
+    this.restHotel.updateHotel(this.user._id, this.hotel, this.hotel._id).subscribe((res:any)=>{ //comprobar una vez mas
+      if(res.hotelUpdate){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message));
+
+  }
+
+  deleteHotel(){
+    this.restHotel.deleteHotel(this.user._id, this.hotel._id,this.possiblePass).subscribe((res:any)=>{
+      if(res.hotelRemoved){
+        alert(res.message);
+        this.router.navigateByUrl('hotel');
+      }else{
+        alert(res.message)
+      }
+    },
+    (error:any) => alert(error.error.message));
     
   }
 

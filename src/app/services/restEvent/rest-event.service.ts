@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, JsonpClientBackend } from "@angular/common/http";
 import { CONNECTION } from '../global';
 import { map } from "rxjs/operators";
 import { RestUserService } from '../restUser/rest-user.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class RestHotelService {
+export class RestEventService {
 
+  public event;
   public uri;
   public user;
-  public hotel;
-
-  constructor(private http:HttpClient, private restUser:RestUserService) {
+  constructor(private http:HttpClient, private restUser:RestUserService){ 
     this.uri = CONNECTION.URI;
-  }  
-
+  }
   public httpOptions = {
     headers:new HttpHeaders({
       'Content-Type': 'application/json'
@@ -29,7 +26,7 @@ export class RestHotelService {
       'Content-Type': 'application/json',
       'Authorization': this.restUser.getToken()
     })
-
+  
   }
 
   private extractData(res: Response){
@@ -37,35 +34,38 @@ export class RestHotelService {
     return body || [] || {};
   }
 
+  /* Guia para crear el event
   createHotel(hotel, idAdmin){
     let params = JSON.stringify(hotel);
     return this.http.post(this.uri+'/'+idAdmin+'/createHotel', params, this.HttpOptionsAuth)
     .pipe(map(this.extractData));
   }
+  */
 
-  getHotelsAdmin(idUser){
-    return this.http.get(this.uri+'getHotelsAdmin/'+idUser, this.HttpOptionsAuth)
+  createEvent(idUser, idHotel, parametro){
+    let params = JSON.stringify(parametro);
+    return this.http.post(this.uri+'/'+idUser+'/createEvent/'+ idHotel, params, this.HttpOptionsAuth)
     .pipe(map(this.extractData));
   }
 
-  getHotel(){
-    let hotel = JSON.parse(localStorage.getItem('hotel'));
-    if(hotel != undefined || hotel != null){
-      this.hotel = hotel;
+  listEvent(idHotel){
+    return this.http.get(this.uri+'/'+idHotel+'/listEvent').pipe(map(this.extractData));
+  }
+
+  getEvent(idHotel, event){
+    let params = JSON.stringify(event);
+    return this.http.post(this.uri+'/'+idHotel+'/getEvent', params)
+    .pipe(map(this.extractData));
+  }
+
+  getLocalStorageEvent(){
+    let event = JSON.parse(localStorage.getItem('event'));
+    if(event != undefined || event!= null){
+      this.event = event;
     }else{
-      this.hotel = null;
+      this.event == null;
     }
-    return this.hotel;
-  }
-
-  updateHotel(idUser, hotelToUpdate, idHotel){
-    let params = JSON.stringify(hotelToUpdate);
-    return this.http.put(this.uri+'/'+idUser+'/updateHotel/'+idHotel, params, this.HttpOptionsAuth)
-    .pipe(map(this.extractData));
-  }
-
-  deleteHotel(idUser, idHotel, password ){
-    return this.http.post(this.uri+'/'+idUser+'/deleteHotel/'+idHotel, {passwordAdmin : password}, this.HttpOptionsAuth)
-    .pipe(map(this.extractData));
+    return this.event;
   }
 }
+
