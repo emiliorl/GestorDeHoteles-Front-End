@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../../models/reservation';
 import { RestReservationService } from 'src/app/services/restReservation/rest-reservation.service';
 import { Router } from '@angular/router';
+import { CONNECTION } from 'src/app/services/global';
 
 @Component({
   selector: 'app-reservation',
@@ -11,21 +12,28 @@ import { Router } from '@angular/router';
 export class ReservationComponent implements OnInit {
   public reservation: Reservation;
   public pass;
+  public user;
+  public possiblePass;
+  public token;
+  public uri: string;
 
   constructor(private restReservation: RestReservationService,
     private router: Router) {
     this.pass = '';
+    this.user = this.restReservation.listReservation();
+    this.token = this.restReservation.getToken();
+    this.uri = CONNECTION.URI;
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.restReservation.updateReservation(this.reservation).subscribe((res:any) => {
+    this.restReservation.updateReservation(this.user,this.reservation).subscribe((res:any) => {
       delete this.reservation.serviceBefore;
       delete this.reservation.room;
       if(res.reservationUpdate){
-        delete res.reservationUpdate.password;
+        delete res.reservationUpdate.user;
         localStorage.setItem('reservation', JSON.stringify(res.reservationUpdate))
         alert(res.message)
       }else{

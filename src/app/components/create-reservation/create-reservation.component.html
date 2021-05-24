@@ -21,6 +21,7 @@
                 <span *ngIf="!checkIn.valid && checkIn.touched">
                     *Obligatorio
                 </span>
+                <br>
                 <label>Check Out</label>
                 <input [(ngModel)]="reservation.checkOut" name='checkOut'#checkOut="ngModel" class="form-control" id="checkOut" type="date" placeholder="Salida" required>
                 <span *ngIf="!checkOut.valid && checkOut.touched">
@@ -34,14 +35,11 @@
                 <b for="inputserviceBefore">Servicios</b>
                 <br>
                 <select name='serviceBefore'>
-                    <option selected>N/A</option>
                     <option>{{reservation.serviceBefore}}</option>
                 </select>
             </div>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block bg-primary" type="button">Agregar servicio</button>
-        <br>
         <button class="btn btn-lg btn-success btn-block bg-success" type="submit">Confirmar reservación</button>
         <button class="btn btn-lg btn-danger btn-block bg-danger" type="button" routerLink="/room">Cancelar reservación</button>
     </form>

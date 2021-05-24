@@ -11,19 +11,20 @@ export class CreateReservationComponent implements OnInit {
   public reservation: Reservation;
   public checkIn: Date;
   public checkOut: Date;
+  public user;
 
   constructor(private restReservation:RestReservationService) { 
-    this.reservation = new Reservation(null,this.checkIn,this.checkOut,[],[],[]);
   }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(statusForm){
-    this.restReservation.createReservation().subscribe((res:any) => {
+    this.restReservation.createReservation(this.reservation,this.user,/*this.room*/).subscribe((res:any) => {
       if(res.createReservation){
         alert(res.message);
-        this.reservation = new Reservation(null,this.checkIn,this.checkOut,[],[],[]);
+        this.reservation = new Reservation(this.user,this.checkIn,this.checkOut,[],[],[]);
         statusForm.reset();
       }else{
         alert(res.message);
