@@ -33,6 +33,7 @@ import { ListReservationComponent } from './components/list-reservation/list-res
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { CreateServiceComponent } from './components/create-service/create-service.component';
 import { RoomComponent } from './components/room/room.component';
+import { CreateRoomComponent } from './components/create-room/create-room.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { RoomComponent } from './components/room/room.component';
     ListReservationComponent,
     ReservationComponent,
     CreateServiceComponent,
-    RoomComponent
+    RoomComponent,
+    CreateRoomComponent
 
   ],
   imports: [
