@@ -30,7 +30,7 @@ export class CreateReservationComponent implements OnInit {
   }
 
   onSubmit(createReservation){
-    this.restReservation.createReservation(this.reservation,this.user._id,this.hotel._id,this.room.id).subscribe((res:any) => {
+    this.restReservation.createReservation(this.reservation,this.user._id,this.hotel._id,this.room._id).subscribe((res:any) => {
       if(res.showReservation){
         alert(res.message);
         createReservation.reset();
