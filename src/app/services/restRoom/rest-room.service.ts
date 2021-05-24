@@ -51,4 +51,14 @@ import { RestUserService } from '../restUser/rest-user.service';
         .pipe(map(this.extractData));
       }
 
+      getRoom(){
+        let room = JSON.parse(localStorage.getItem('room'));
+        if(room != undefined || room != null){
+          this.room = room;
+        }else{
+          this.room = null;
+        }
+        return this.room;
+      }
+
   }
